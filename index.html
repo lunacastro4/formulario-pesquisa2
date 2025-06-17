@@ -5,172 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Formulário Pesquisa Mulheres Trabalhadoras</title>
   <style>
-    body {
-      margin: 0; padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(180deg, #0a0a0a, #1a001f);
-      color: #eee;
-      display: flex;
-      justify-content: center;
-      padding: 15px 10px;
-    }
-    .container {
-      max-width: 750px;
-      width: 100%;
-      background: #1c1c1c;
-      border-radius: 12px;
-      padding: 30px 25px;
-      box-shadow: 0 0 15px #7a00ff88;
-    }
-    h2 {
-      color: #cc66ff;
-      margin-bottom: 15px;
-      border-bottom: 2px solid #cc66ff44;
-      padding-bottom: 8px;
-      font-size: 1.8rem;
-      text-align: center;
-      font-weight: 700;
-    }
-    label {
-      display: block;
-      margin-top: 20px;
-      font-weight: 600;
-      color: #d6baff;
-      font-size: 1.1rem;
-    }
-    input[type="text"],
-    input[type="email"],
-    select,
-    textarea {
-      width: 100%;
-      padding: 14px 18px;
-      margin-top: 6px;
-      border-radius: 10px;
-      border: 1.5px solid #cc66ff88;
-      background: #2c2c2c;
-      color: #eee;
-      font-size: 1.1rem;
-      font-family: inherit;
-      resize: vertical;
-      transition: border-color 0.3s;
-    }
-    input[type="text"]:focus,
-    input[type="email"]:focus,
-    select:focus,
-    textarea:focus {
-      border-color: #cc66ff;
-      outline: none;
-      background: #3b2a58;
-    }
-    textarea {
-      min-height: 80px;
-    }
-    .tcle-box {
-      background: #2a1a3a;
-      border-left: 6px solid #cc66ff;
-      padding: 20px 25px;
-      border-radius: 12px;
-      color: #d6baffcc;
-      margin-bottom: 35px;
-      font-size: 1.05rem;
-      line-height: 1.5;
-    }
-    .consentimento {
-      margin-top: 30px;
-      color: #d6baff;
-      font-size: 1.1rem;
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-    .consentimento input[type="checkbox"] {
-      width: 22px;
-      height: 22px;
-      cursor: pointer;
-    }
-    .info-entrevista {
-      margin-top: 30px;
-      background: #2a1a3a;
-      border-left: 6px solid #cc66ff;
-      padding: 20px 25px;
-      border-radius: 12px;
-      color: #cc99ff;
-      font-size: 1rem;
-      line-height: 1.4;
-      text-align: center;
-      font-weight: 600;
-    }
-    button {
-      margin-top: 35px;
-      width: 100%;
-      background: #cc66ff;
-      border: none;
-      padding: 18px;
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: #111;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: background 0.3s ease;
-      box-shadow: 0 0 10px #cc66ffaa;
-    }
-    button:hover {
-      background: #a94ed8;
-    }
-    @media (max-width: 480px) {
-      body {
-        padding: 15px 10px;
-      }
-      .container {
-        padding: 25px 20px;
-      }
-      h2 {
-        font-size: 1.6rem;
-        margin-bottom: 12px;
-      }
-      label {
-        font-size: 1rem;
-        margin-top: 18px;
-      }
-      input[type="text"],
-      input[type="email"],
-      select,
-      textarea {
-        font-size: 1rem;
-        padding: 14px 15px;
-      }
-      textarea {
-        min-height: 90px;
-      }
-      .tcle-box,
-      .info-entrevista {
-        font-size: 0.95rem;
-        padding: 18px 20px;
-        margin-bottom: 30px;
-      }
-      .consentimento {
-        font-size: 1rem;
-        gap: 12px;
-      }
-      .consentimento input[type="checkbox"] {
-        width: 20px;
-        height: 20px;
-      }
-      button {
-        font-size: 1.1rem;
-        padding: 16px;
-        margin-top: 30px;
-        border-radius: 10px;
-      }
-    }
+    /* Seu CSS aqui (igual ao que você enviou) */
+    /* ... mantenha seu CSS do formulário ... */
   </style>
 </head>
 <body>
   <main class="container">
     <h2>Formulário para Mulheres Trabalhadoras</h2>
-    
-    <form id="form" onsubmit="return validarFormulario()" novalidate>
-      
+    <form id="form" action="/enviar" method="POST" novalidate>
       <label for="nome">Nome completo:</label>
       <input type="text" id="nome" name="nome" required placeholder="Seu nome completo" />
 
@@ -189,7 +31,6 @@
       <label for="instituicao">Instituição (Obrigatório):</label>
       <input type="text" id="instituicao" name="instituicao" required placeholder="Nome da instituição onde trabalha/estuda" />
 
-      <!-- Questões direcionadas às trabalhadoras -->
       <label for="questao1">1. Você trabalha atualmente?</label>
       <select id="questao1" name="questao1" required>
         <option value="" disabled selected>Selecione</option>
@@ -269,19 +110,12 @@
   </main>
 
   <script>
-    function validarFormulario() {
-      const form = document.getElementById('form');
-
-      if (!form.checkValidity()) {
-        alert('Por favor, preencha todos os campos obrigatórios corretamente.');
-        return false;
+    document.getElementById('form').addEventListener('submit', function(e) {
+      // Apenas alertar confirmação
+      if(!confirm('Tem certeza que deseja enviar o formulário?')) {
+        e.preventDefault();
       }
-      // Confirmação opcional antes de enviar
-      if (!confirm('Tem certeza que deseja enviar o formulário?')) {
-        return false;
-      }
-      return true;
-    }
+    });
   </script>
 </body>
 </html>
