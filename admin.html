@@ -73,63 +73,86 @@
 </div>
 
 <script>
-  const senhaCorreta = '1234';
-
   const btnLogin = document.getElementById('btnLogin');
   const senhaAdmin = document.getElementById('senhaAdmin');
   const respostasDiv = document.getElementById('respostas');
 
-  btnLogin.addEventListener('click', () => {
-    if (senhaAdmin.value !== senhaCorreta) {
-      alert('Senha incorreta!');
-      respostasDiv.style.display = 'none';
-      respostasDiv.innerHTML = '';
+  btnLogin.addEventListener('click', async () => {
+    const senha = senhaAdmin.value;
+    if (!senha) {
+      alert('Digite a senha para acessar.');
       return;
     }
+    try {
+      const res = await fetch('/painel', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({senha})
+      });
+      if (res.status === 401) {
+        alert('Senha incorreta!');
+        respostasDiv.style.display = 'none';
+        respostasDiv.innerHTML = '';
+        return;
+      }
+      const data = await res.json();
+      if (!data.respostas || data.respostas.length === 0) {
+        respostasDiv.innerHTML = '<p>Nenhuma resposta encontrada.</p>';
+        respostasDiv.style.display = 'block';
+        return;
+      }
 
-    const respostas = JSON.parse(localStorage.getItem('respostas')) || [];
-
-    if (respostas.length === 0) {
-      respostasDiv.innerHTML = '<p>Nenhuma resposta encontrada.</p>';
-      respostasDiv.style.display = 'block';
-      return;
-    }
-
-    // Construir tabela com todas as respostas e perguntas
-    let html = `<table>
+      let html = `<table>
       <thead>
         <tr>
           <th>#</th>
           <th>Nome</th>
-          <th>E-mail</th>
-          <th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th><th>Q5</th><th>Q6</th><th>Q7</th><th>Q8</th><th>Q9</th><th>Q10</th>
+          <th>Idade</th>
+          <th>Escolaridade</th>
+          <th>Instituição</th>
+          <th>Trabalha?</th>
+          <th>Área</th>
+          <th>Horas/dia</th>
+          <th>Trabalho valorizado?</th>
+          <th>Benefícios?</th>
+          <th>Independência financeira?</th>
+          <th>Cursos/treinamentos?</th>
+          <th>Dificuldades</th>
+          <th>Condição mulher</th>
+          <th>Melhorias desejadas</th>
           <th>Data</th>
         </tr>
       </thead><tbody>`;
 
-    respostas.forEach((res, i) => {
-      html += `<tr>
-        <td>${i+1}</td>
-        <td>${res.nome}</td>
-        <td>${res.email || '-'}</td>
-        <td>${res.q1}</td>
-        <td>${res.q2}</td>
-        <td>${res.q3}</td>
-        <td>${res.q4}</td>
-        <td>${res.q5}</td>
-        <td>${res.q6}</td>
-        <td>${res.q7}</td>
-        <td>${res.q8}</td>
-        <td>${res.q9}</td>
-        <td>${res.q10}</td>
-        <td>${res.data}</td>
-      </tr>`;
-    });
+      data.respostas.forEach((res, i) => {
+        html += `<tr>
+          <td>${i + 1}</td>
+          <td>${res.nome}</td>
+          <td>${res.idade}</td>
+          <td>${res.escolaridade}</td>
+          <td>${res.instituicao}</td>
+          <td>${res.questao1}</td>
+          <td>${res.questao2}</td>
+          <td>${res.questao3}</td>
+          <td>${res.questao4}</td>
+          <td>${res.questao5}</td>
+          <td>${res.questao6}</td>
+          <td>${res.questao7}</td>
+          <td>${res.questao8}</td>
+          <td>${res.questao9}</td>
+          <td>${res.questao10}</td>
+          <td>${res.data}</td>
+        </tr>`;
+      });
 
-    html += '</tbody></table>';
+      html += '</tbody></table>';
+      respostasDiv.innerHTML = html;
+      respostasDiv.style.display = 'block';
 
-    respostasDiv.innerHTML = html;
-    respostasDiv.style.display = 'block';
+    } catch (error) {
+      alert('Erro ao buscar respostas.');
+      console.error(error);
+    }
   });
 </script>
 
