@@ -1,22 +1,33 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Pesquisa - Mulheres Negras e Educação</title>
   <style>
+    /* Reset simples */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: 'Segoe UI', sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(to bottom, #0a0a0a, #1a001f);
       color: #f4f4f4;
       margin: 0;
-      padding: 0;
+      padding: 0 15px;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
     }
 
     .container {
       max-width: 750px;
-      margin: 40px auto;
+      width: 100%;
+      margin: 40px 0;
       background-color: #1c1c1c;
-      padding: 30px;
+      padding: 30px 40px;
       border-radius: 12px;
       box-shadow: 0 0 15px #7a00ff55;
     }
@@ -26,6 +37,8 @@
       border-bottom: 2px solid #cc66ff33;
       padding-bottom: 5px;
       margin-bottom: 20px;
+      font-weight: 700;
+      font-size: 1.8rem;
     }
 
     label {
@@ -33,21 +46,37 @@
       margin-top: 20px;
       font-weight: 600;
       color: #e0d6f5;
+      font-size: 1rem;
     }
 
-    select, input[type="text"], input[type="email"], textarea {
+    select,
+    input[type="text"],
+    input[type="email"],
+    textarea {
       width: 100%;
-      padding: 12px;
+      padding: 12px 15px;
       background: #2c2c2c;
       border: 1px solid #cc66ff44;
       border-radius: 8px;
       color: #fff;
       margin-top: 8px;
-      font-size: 15px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+      font-family: inherit;
+      resize: vertical;
+    }
+
+    select:focus,
+    input[type="text"]:focus,
+    input[type="email"]:focus,
+    textarea:focus {
+      border-color: #cc66ff;
+      outline: none;
+      background: #3b2a58;
     }
 
     textarea {
-      resize: vertical;
+      min-height: 70px;
     }
 
     button {
@@ -56,9 +85,11 @@
       padding: 14px 20px;
       border: none;
       border-radius: 8px;
-      font-size: 16px;
+      font-size: 1.1rem;
       margin-top: 30px;
       cursor: pointer;
+      font-weight: 700;
+      width: 100%;
       transition: background 0.3s;
     }
 
@@ -68,19 +99,96 @@
 
     .tcle {
       background-color: #2d1a3a;
-      padding: 20px;
+      padding: 20px 25px;
       border-radius: 10px;
       border-left: 5px solid #cc66ff;
       margin-bottom: 30px;
+      font-size: 0.9rem;
+      line-height: 1.4;
+      color: #d0c3e2;
     }
 
     .tcle p {
-      color: #d0c3e2;
       margin-bottom: 10px;
     }
 
     .question-group {
       margin-top: 30px;
+    }
+
+    .consentimento {
+      margin-top: 30px;
+      color: #d8c8ff;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .consentimento input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+    }
+
+    .info-entrevista {
+      margin-top: 25px;
+      font-size: 0.95rem;
+      color: #cc99ff;
+      background-color: #2a1a3a;
+      padding: 15px 20px;
+      border-radius: 8px;
+      border-left: 4px solid #cc66ff;
+    }
+
+    /* Responsividade para telas menores (celulares) */
+    @media (max-width: 480px) {
+      body {
+        padding: 10px;
+        align-items: stretch;
+      }
+
+      .container {
+        padding: 20px;
+        margin: 20px 0;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #7a00ff88;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      label {
+        font-size: 0.95rem;
+      }
+
+      select,
+      input[type="text"],
+      input[type="email"],
+      textarea {
+        font-size: 0.95rem;
+        padding: 10px 12px;
+      }
+
+      button {
+        font-size: 1rem;
+        padding: 12px;
+      }
+
+      .tcle {
+        font-size: 0.85rem;
+        padding: 15px 20px;
+      }
+
+      .consentimento {
+        font-size: 0.9rem;
+      }
+
+      .info-entrevista {
+        font-size: 0.9rem;
+        padding: 12px 15px;
+      }
     }
   </style>
 </head>
@@ -97,10 +205,10 @@
     <form id="formulario">
 
       <label>Nome completo:</label>
-      <input type="text" name="nome" required>
+      <input type="text" name="nome" required />
 
       <label>E-mail:</label>
-      <input type="email" name="email" required>
+      <input type="email" name="email" required />
 
       <label>Você é:</label>
       <select name="tipo" id="tipo" required>
@@ -112,7 +220,7 @@
       </select>
 
       <label>Instituição (nome da escola/faculdade):</label>
-      <input type="text" name="instituicao" required>
+      <input type="text" name="instituicao" required />
 
       <label>Tipo de Instituição:</label>
       <select name="tipo_instituicao" required>
@@ -123,13 +231,22 @@
 
       <div id="perguntas-container" class="question-group"></div>
 
+      <div class="consentimento">
+        <input type="checkbox" id="aceito" required />
+        <label for="aceito">Declaro que li e aceito os termos do Termo de Consentimento Livre e Esclarecido (TCLE).</label>
+      </div>
+
+      <div class="info-entrevista">
+        <p>Você pode também participar de uma entrevista individual. Para agendar, entre em contato pelo telefone <strong>(94) 99243-1290</strong> ou pelo e-mail <a href="mailto:mirellasantossouza2712@gmail.com" style="color:#cc99ff; text-decoration: underline;">mirellasantossouza2712@gmail.com</a>.</p>
+      </div>
+
       <button type="submit">Enviar</button>
     </form>
   </div>
 
   <script>
-    const perguntasContainer = document.getElementById('perguntas-container');
-    const tipoSelect = document.getElementById('tipo');
+    const perguntasContainer = document.getElementById("perguntas-container");
+    const tipoSelect = document.getElementById("tipo");
 
     const perguntas = {
       universitaria: [
@@ -142,7 +259,7 @@
         "Você trabalha enquanto estuda?",
         "Sente dificuldade de acesso a materiais de estudo?",
         "Acredita que o diploma te dará melhores oportunidades?",
-        "Já pensou em desistir da universidade?"
+        "Já pensou em desistir da universidade?",
       ],
       medio_publica: [
         "Você sente que sua escola tem estrutura adequada?",
@@ -154,7 +271,7 @@
         "Você pretende fazer faculdade?",
         "Já pensou em abandonar os estudos?",
         "Sente apoio da família para continuar estudando?",
-        "Participa de algum projeto extracurricular?"
+        "Participa de algum projeto extracurricular?",
       ],
       medio_privada: [
         "Você sente diferença entre colegas por classe social?",
@@ -166,7 +283,7 @@
         "Você pretende estudar fora do país?",
         "Sente-se representada nas aulas?",
         "Sua escola oferece bolsas para alunos negros?",
-        "Já pensou em mudar de escola por questões raciais?"
+        "Já pensou em mudar de escola por questões raciais?",
       ],
       trabalhadora: [
         "Você trabalha atualmente?",
@@ -178,19 +295,19 @@
         "Você sente que o ambiente escolar/universitário entende suas dificuldades?",
         "Você já sofreu discriminação no trabalho ou na escola por ser mulher negra?",
         "Você conhece outras mulheres negras que também trabalham e estudam?",
-        "Você acredita que seus estudos vão te ajudar a conquistar melhores oportunidades no trabalho?"
-      ]
+        "Você acredita que seus estudos vão te ajudar a conquistar melhores oportunidades no trabalho?",
+      ],
     };
 
-    tipoSelect.addEventListener('change', () => {
+    tipoSelect.addEventListener("change", () => {
       const tipo = tipoSelect.value;
       perguntasContainer.innerHTML = "";
 
       if (tipo && perguntas[tipo]) {
         perguntas[tipo].forEach((pergunta, index) => {
-          const label = document.createElement('label');
+          const label = document.createElement("label");
           label.textContent = `${index + 1}. ${pergunta}`;
-          const textarea = document.createElement('textarea');
+          const textarea = document.createElement("textarea");
           textarea.name = `resposta_${index + 1}`;
           textarea.rows = 2;
           perguntasContainer.appendChild(label);
@@ -199,7 +316,13 @@
       }
     });
 
-    document.getElementById('formulario').addEventListener('submit', function (e) {
+    document.getElementById("formulario").addEventListener("submit", function (e) {
+      if (!document.getElementById("aceito").checked) {
+        e.preventDefault();
+        alert("Você precisa aceitar os termos do TCLE para enviar o formulário.");
+        return;
+      }
+
       e.preventDefault();
 
       const dados = new FormData(this);
