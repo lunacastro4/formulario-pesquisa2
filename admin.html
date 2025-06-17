@@ -45,14 +45,23 @@
             return;
           }
           let html = '<table><thead><tr>';
+          // Mostrar cabeçalho com as chaves do primeiro objeto
           Object.keys(data[0]).forEach(chave => {
             html += `<th>${chave}</th>`;
           });
           html += '</tr></thead><tbody>';
+          // Mostrar cada resposta em uma linha
           data.forEach(resp => {
             html += '<tr>';
             Object.values(resp).forEach(val => {
-              html += `<td>${val}</td>`;
+              // Escapa HTML básico para segurança (evitar código malicioso)
+              const safeVal = String(val)
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#39;");
+              html += `<td>${safeVal}</td>`;
             });
             html += '</tr>';
           });
