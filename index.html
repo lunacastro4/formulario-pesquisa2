@@ -4,64 +4,135 @@
   <meta charset="UTF-8">
   <title>Pesquisa - Mulheres Negras e Educação</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 20px; background-color: #f9f9f9; }
-    h2 { color: #333; }
-    label { display: block; margin: 10px 0 5px; font-weight: bold; }
-    select, input, textarea { width: 100%; padding: 8px; margin-bottom: 10px; }
-    button { background-color: #4CAF50; color: white; padding: 10px 15px; border: none; cursor: pointer; }
-    .hidden { display: none; }
-    .question-group { margin-top: 20px; }
-    .tcle { background: #fffbe6; padding: 15px; border: 1px solid #f1c40f; margin-bottom: 20px; }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #0a0a0a, #1a001f);
+      color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 750px;
+      margin: 40px auto;
+      background-color: #1c1c1c;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px #7a00ff55;
+    }
+
+    h2 {
+      color: #cc66ff;
+      border-bottom: 2px solid #cc66ff33;
+      padding-bottom: 5px;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-top: 20px;
+      font-weight: 600;
+      color: #e0d6f5;
+    }
+
+    select, input[type="text"], input[type="email"], textarea {
+      width: 100%;
+      padding: 12px;
+      background: #2c2c2c;
+      border: 1px solid #cc66ff44;
+      border-radius: 8px;
+      color: #fff;
+      margin-top: 8px;
+      font-size: 15px;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      background: #cc66ff;
+      color: #fff;
+      padding: 14px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      margin-top: 30px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #a94ed8;
+    }
+
+    .tcle {
+      background-color: #2d1a3a;
+      padding: 20px;
+      border-radius: 10px;
+      border-left: 5px solid #cc66ff;
+      margin-bottom: 30px;
+    }
+
+    .tcle p {
+      color: #d0c3e2;
+      margin-bottom: 10px;
+    }
+
+    .question-group {
+      margin-top: 30px;
+    }
   </style>
 </head>
 <body>
+  <div class="container">
+    <div class="tcle">
+      <h2>Termo de Consentimento Livre e Esclarecido (TCLE)</h2>
+      <p><strong>Título:</strong> Entre a Escola e a Margem: Mulheres Negras no Brasil e o Acesso Negado ao Futuro</p>
+      <p><strong>Pesquisadora:</strong> Mirella Santos Souza</p>
+      <p><strong>Instituição:</strong> EEEM Dr° José Cursino de Azevedo</p>
+      <p>Você está sendo convidada a participar desta pesquisa que tem como objetivo compreender as experiências de mulheres negras no acesso à educação. Sua participação é voluntária, suas respostas serão confidenciais e utilizadas apenas para fins acadêmicos.</p>
+    </div>
 
-  <div class="tcle">
-    <h2>Termo de Consentimento Livre e Esclarecido (TCLE)</h2>
-    <p><strong>Título da Pesquisa:</strong> Entre a Escola e a Margem: Mulheres Negras no Brasil e o Acesso Negado ao Futuro</p>
-    <p><strong>Pesquisadora Responsável:</strong> Mirella Santos Souza</p>
-    <p><strong>Instituição:</strong> EEEM Dr° José Cursino de Azevedo</p>
-    <p>Você está sendo convidada a participar desta pesquisa que tem como objetivo compreender as experiências de mulheres negras no acesso à educação. Sua participação é voluntária, suas respostas serão confidenciais e utilizadas apenas para fins acadêmicos.</p>
+    <form id="formulario">
+
+      <label>Nome completo:</label>
+      <input type="text" name="nome" required>
+
+      <label>E-mail:</label>
+      <input type="email" name="email" required>
+
+      <label>Você é:</label>
+      <select name="tipo" id="tipo" required>
+        <option value="">Selecione</option>
+        <option value="universitaria">Universitária</option>
+        <option value="medio_publica">Ensino Médio - Pública</option>
+        <option value="medio_privada">Ensino Médio - Privada</option>
+        <option value="trabalhadora">Trabalhadora que estuda</option>
+      </select>
+
+      <label>Instituição (nome da escola/faculdade):</label>
+      <input type="text" name="instituicao" required>
+
+      <label>Tipo de Instituição:</label>
+      <select name="tipo_instituicao" required>
+        <option value="">Selecione</option>
+        <option value="publica">Pública</option>
+        <option value="privada">Privada</option>
+      </select>
+
+      <div id="perguntas-container" class="question-group"></div>
+
+      <button type="submit">Enviar</button>
+    </form>
   </div>
-
-  <form id="formulario">
-
-    <label>Nome completo:</label>
-    <input type="text" name="nome" required>
-
-    <label>E-mail:</label>
-    <input type="email" name="email" required>
-
-    <label>Você é:</label>
-    <select name="tipo" id="tipo">
-      <option value="">Selecione</option>
-      <option value="universitaria">Universitária</option>
-      <option value="medio_publica">Ensino Médio - Pública</option>
-      <option value="medio_privada">Ensino Médio - Privada</option>
-      <option value="trabalhadora">Trabalhadora que estuda</option>
-    </select>
-
-    <label>Instituição (nome da escola/faculdade):</label>
-    <input type="text" name="instituicao" required>
-
-    <label>Tipo de Instituição:</label>
-    <select name="tipo_instituicao" required>
-      <option value="">Selecione</option>
-      <option value="publica">Pública</option>
-      <option value="privada">Privada</option>
-    </select>
-
-    <div id="perguntas-container" class="question-group"></div>
-
-    <button type="submit">Enviar</button>
-  </form>
 
   <script>
     const perguntasContainer = document.getElementById('perguntas-container');
     const tipoSelect = document.getElementById('tipo');
 
     const perguntas = {
-      universitária: [
+      universitaria: [
         "Você ingressou na universidade por meio de cotas?",
         "Já sofreu racismo dentro da universidade?",
         "Sente-se representada pelas professoras e professores?",
