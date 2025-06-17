@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Painel Admin - Respostas</title>
+<style>
+  body {
+    background: #121212;
+    color: #d0c9ff;
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  h1 {
+    color: #9b59b6;
+  }
+  #respostas {
+    margin-top: 20px;
+    max-width: 900px;
+    overflow-x: auto;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #1a1a2e;
+  }
+  th, td {
+    padding: 8px;
+    border: 1px solid #555;
+    text-align: left;
+    color: #ccc;
+  }
+  th {
+    background-color: #6f42c1;
+    color: white;
+  }
+  input[type=password] {
+    padding: 8px;
+    font-size: 16px;
+    margin-right: 8px;
+    border-radius: 5px;
+    border: none;
+    width: 250px;
+  }
+  button {
+    padding: 10px 18px;
+    font-size: 16px;
+    background: #9b59b6;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    cursor: pointer;
+  }
+  button:hover {
+    background: #7e3fa5;
+  }
+  .container {
+    max-width: 1000px;
+    margin: auto;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Painel de Respostas</h1>
+  <label>Senha do administrador:
+    <input type="password" id="senhaAdmin" placeholder="Digite a senha" />
+    <button id="btnLogin">Entrar</button>
+  </label>
+
+  <div id="respostas" style="display:none;"></div>
+</div>
+
+<script>
+  const senhaCorreta = '1234';
+
+  const btnLogin = document.getElementById('btnLogin');
+  const senhaAdmin = document.getElementById('senhaAdmin');
+  const respostasDiv = document.getElementById('respostas');
+
+  btnLogin.addEventListener('click', () => {
+    if (senhaAdmin.value !== senhaCorreta) {
+      alert('Senha incorreta!');
+      respostasDiv.style.display = 'none';
+      respostasDiv.innerHTML = '';
+      return;
+    }
+
+    const respostas = JSON.parse(localStorage.getItem('respostas')) || [];
+
+    if (respostas.length === 0) {
+      respostasDiv.innerHTML = '<p>Nenhuma resposta encontrada.</p>';
+      respostasDiv.style.display = 'block';
+      return;
+    }
+
+    // Construir tabela com todas as respostas e perguntas
+    let html = `<table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Nome</th>
+          <th>E-mail</th>
+          <th>Q1</th><th>Q2</th><th>Q3</th><th>Q4</th><th>Q5</th><th>Q6</th><th>Q7</th><th>Q8</th><th>Q9</th><th>Q10</th>
+          <th>Data</th>
+        </tr>
+      </thead><tbody>`;
+
+    respostas.forEach((res, i) => {
+      html += `<tr>
+        <td>${i+1}</td>
+        <td>${res.nome}</td>
+        <td>${res.email || '-'}</td>
+        <td>${res.q1}</td>
+        <td>${res.q2}</td>
+        <td>${res.q3}</td>
+        <td>${res.q4}</td>
+        <td>${res.q5}</td>
+        <td>${res.q6}</td>
+        <td>${res.q7}</td>
+        <td>${res.q8}</td>
+        <td>${res.q9}</td>
+        <td>${res.q10}</td>
+        <td>${res.data}</td>
+      </tr>`;
+    });
+
+    html += '</tbody></table>';
+
+    respostasDiv.innerHTML = html;
+    respostasDiv.style.display = 'block';
+  });
+</script>
+
+</body>
+</html>
