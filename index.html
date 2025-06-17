@@ -1,200 +1,296 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Formulário Pesquisa Mulheres Trabalhadoras</title>
-  <style>
-    body {
-      background-color: #121212;
-      color: #d0c9ff;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Pesquisa - Mulheres Negras e Educação</title>
+<style>
+  body {
+    margin: 0; padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(180deg, #0a0a0a, #1a001f);
+    color: #eee;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+  .container {
+    max-width: 750px;
+    width: 100%;
+    background: #1c1c1c;
+    border-radius: 12px;
+    padding: 30px 40px;
+    box-shadow: 0 0 15px #7a00ff88;
+  }
+  h2 {
+    color: #cc66ff;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #cc66ff44;
+    padding-bottom: 8px;
+  }
+  label {
+    display: block;
+    margin-top: 20px;
+    font-weight: 600;
+    color: #d6baff;
+  }
+  input[type="text"],
+  input[type="email"],
+  select,
+  textarea {
+    width: 100%;
+    padding: 10px 15px;
+    margin-top: 6px;
+    border-radius: 8px;
+    border: 1px solid #cc66ff66;
+    background: #2c2c2c;
+    color: #eee;
+    font-size: 1rem;
+    font-family: inherit;
+    resize: vertical;
+    transition: border-color 0.3s;
+  }
+  input[type="text"]:focus,
+  input[type="email"]:focus,
+  select:focus,
+  textarea:focus {
+    border-color: #cc66ff;
+    outline: none;
+    background: #3b2a58;
+  }
+  textarea {
+    min-height: 70px;
+  }
+  .tcle-box {
+    background: #2a1a3a;
+    border-left: 5px solid #cc66ff;
+    padding: 15px 20px;
+    border-radius: 10px;
+    color: #d6baffcc;
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+  .consentimento {
+    margin-top: 25px;
+    color: #d6baff;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .consentimento input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+  }
+  .info-entrevista {
+    margin-top: 25px;
+    background: #2a1a3a;
+    border-left: 5px solid #cc66ff;
+    padding: 15px 20px;
+    border-radius: 8px;
+    color: #cc99ff;
+    font-size: 0.95rem;
+  }
+  button {
+    margin-top: 30px;
+    width: 100%;
+    background: #cc66ff;
+    border: none;
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #111;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  button:hover {
+    background: #a94ed8;
+  }
+  @media(max-width:480px){
     .container {
-      max-width: 700px;
-      margin: 30px auto;
       padding: 20px;
-      background: #1a1a2e;
-      border-radius: 8px;
     }
     h2 {
-      color: #9b59b6;
-      text-align: center;
+      font-size: 1.5rem;
     }
     label {
-      display: block;
-      margin-top: 15px;
-      font-weight: bold;
+      font-size: 0.9rem;
     }
     input[type="text"],
+    input[type="email"],
     select,
     textarea {
-      width: 100%;
-      padding: 8px;
-      border-radius: 6px;
-      border: none;
-      margin-top: 5px;
-      background-color: #23234d;
-      color: #d0c9ff;
-      font-size: 14px;
-      resize: vertical;
-    }
-    textarea {
-      min-height: 80px;
+      font-size: 0.9rem;
+      padding: 10px;
     }
     button {
-      margin-top: 25px;
-      width: 100%;
-      background-color: #9b59b6;
-      border: none;
-      color: white;
+      font-size: 1rem;
       padding: 12px;
-      font-size: 18px;
-      border-radius: 20px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
     }
-    button:hover {
-      background-color: #7e3fa5;
-    }
-    .tcle-box {
-      margin-top: 20px;
-      font-size: 13px;
-      color: #c8a9ff;
-      background: #29195a;
-      padding: 8px 12px;
-      border-radius: 6px;
-    }
-    .consentimento {
-      margin-top: 12px;
-      font-weight: normal;
-      font-size: 14px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+    .tcle-box,
     .info-entrevista {
-      margin-top: 20px;
-      font-size: 13px;
-      color: #cc66ff;
-      text-align: center;
+      font-size: 0.85rem;
+      padding: 12px 15px;
     }
-    a {
-      color: #cc66ff;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
-  <main class="container">
-    <h2>Formulário para Mulheres Trabalhadoras</h2>
-    <form id="form" action="/enviar" method="POST" novalidate>
+  <div class="container">
+    <div class="tcle-box">
+      <h2>Termo de Consentimento Livre e Esclarecido (TCLE)</h2>
+      <p><strong>Título:</strong> Entre a Escola e a Margem: Mulheres Negras no Brasil e o Acesso Negado ao Futuro</p>
+      <p><strong>Pesquisadora:</strong> Mirella Santos Souza</p>
+      <p><strong>Instituição:</strong> EEEM Dr° José Cursino de Azevedo</p>
+      <p>Você está sendo convidada a participar desta pesquisa que tem como objetivo compreender as experiências de mulheres negras no acesso à educação. Sua participação é voluntária, suas respostas serão confidenciais e utilizadas apenas para fins acadêmicos.</p>
+    </div>
+
+    <form id="formulario">
       <label for="nome">Nome completo:</label>
-      <input type="text" id="nome" name="nome" required placeholder="Seu nome completo" />
+      <input type="text" id="nome" name="nome" required />
 
-      <label for="idade">Idade:</label>
-      <input type="text" id="idade" name="idade" required placeholder="Sua idade" />
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" required />
 
-      <label for="escolaridade">Escolaridade:</label>
-      <select id="escolaridade" name="escolaridade" required>
-        <option value="" disabled selected>Selecione</option>
-        <option value="Ensino Fundamental">Ensino Fundamental</option>
-        <option value="Ensino Médio">Ensino Médio</option>
-        <option value="Ensino Superior">Ensino Superior</option>
-        <option value="Outros">Outros</option>
+      <label for="tipo">Você é:</label>
+      <select id="tipo" name="tipo" required>
+        <option value="">Selecione</option>
+        <option value="universitaria">Universitária</option>
+        <option value="medio_publica">Ensino Médio - Pública</option>
+        <option value="medio_privada">Ensino Médio - Privada</option>
+        <option value="trabalhadora">Trabalhadora que estuda</option>
       </select>
 
-      <label for="instituicao">Instituição (Obrigatório):</label>
-      <input type="text" id="instituicao" name="instituicao" required placeholder="Nome da instituição onde trabalha/estuda" />
+      <label for="instituicao">Instituição (nome da escola/faculdade):</label>
+      <input type="text" id="instituicao" name="instituicao" required />
 
-      <label for="questao1">1. Você trabalha atualmente?</label>
-      <select id="questao1" name="questao1" required>
-        <option value="" disabled selected>Selecione</option>
-        <option value="Sim">Sim</option>
-        <option value="Não">Não</option>
+      <label for="tipo_instituicao">Tipo de Instituição:</label>
+      <select id="tipo_instituicao" name="tipo_instituicao" required>
+        <option value="">Selecione</option>
+        <option value="publica">Pública</option>
+        <option value="privada">Privada</option>
       </select>
 
-      <label for="questao2">2. Qual é sua área de trabalho?</label>
-      <input type="text" id="questao2" name="questao2" required placeholder="Ex: Comércio, Saúde, Educação..." />
+      <div id="perguntas-container" style="margin-top: 25px;"></div>
 
-      <label for="questao3">3. Quantas horas por dia você trabalha?</label>
-      <input type="text" id="questao3" name="questao3" required placeholder="Ex: 8 horas" />
-
-      <label for="questao4">4. Você sente que seu trabalho é valorizado?</label>
-      <select id="questao4" name="questao4" required>
-        <option value="" disabled selected>Selecione</option>
-        <option value="Sim">Sim</option>
-        <option value="Não">Não</option>
-        <option value="Às vezes">Às vezes</option>
-      </select>
-
-      <label for="questao5">5. Você tem acesso a benefícios trabalhistas?</label>
-      <select id="questao5" name="questao5" required>
-        <option value="" disabled selected>Selecione</option>
-        <option value="Sim">Sim</option>
-        <option value="Não">Não</option>
-        <option value="Parcialmente">Parcialmente</option>
-      </select>
-
-      <label for="questao6">6. Seu trabalho contribui para sua independência financeira?</label>
-      <select id="questao6" name="questao6" required>
-        <option value="" disabled selected>Selecione</option>
-        <option value="Sim">Sim</option>
-        <option value="Não">Não</option>
-        <option value="Em parte">Em parte</option>
-      </select>
-
-      <label for="questao7">7. Você participa de cursos ou treinamentos para melhorar sua qualificação?</label>
-      <select id="questao7" name="questao7" required>
-        <option value="" disabled selected>Selecione</option>
-        <option value="Sim">Sim</option>
-        <option value="Não">Não</option>
-      </select>
-
-      <label for="questao8">8. Quais dificuldades você enfrenta no seu ambiente de trabalho?</label>
-      <textarea id="questao8" name="questao8" required placeholder="Descreva brevemente"></textarea>
-
-      <label for="questao9">9. Você sente que a sua condição de mulher influencia no seu trabalho?</label>
-      <select id="questao9" name="questao9" required>
-        <option value="" disabled selected>Selecione</option>
-        <option value="Sim">Sim</option>
-        <option value="Não">Não</option>
-        <option value="Não sei">Não sei</option>
-      </select>
-
-      <label for="questao10">10. O que você gostaria que mudasse no seu trabalho para torná-lo melhor?</label>
-      <textarea id="questao10" name="questao10" required placeholder="Descreva brevemente"></textarea>
-      
-      <div class="tcle-box">
-        <strong>Termo de Consentimento Livre e Esclarecido (TCLE):</strong><br/>
-        Ao marcar a caixa abaixo, você declara que leu e concorda com os termos da pesquisa, autorizando a participação voluntária e esclarecida.
+      <div class="consentimento">
+        <input type="checkbox" id="aceito" required />
+        <label for="aceito">Declaro que li e aceito os termos do Termo de Consentimento Livre e Esclarecido (TCLE).</label>
       </div>
-
-      <label class="consentimento">
-        <input type="checkbox" id="consentimento" name="consentimento" required />
-        Eu li e concordo com o Termo de Consentimento Livre e Esclarecido (TCLE).
-      </label>
 
       <div class="info-entrevista">
-        Pode haver uma entrevista individual para aprofundar a pesquisa.<br />
-        Contato: <strong>94 99243-1290</strong><br />
-        Email: <a href="mailto:mirellasantossouza2712@gmail.com">mirellasantossouza2712@gmail.com</a>
+        Você pode também participar de uma entrevista individual. Para agendar, entre em contato pelo telefone <strong>(94) 99243-1290</strong> ou pelo e-mail <a href="mailto:mirellasantossouza2712@gmail.com" style="color:#cc99ff; text-decoration: underline;">mirellasantossouza2712@gmail.com</a>.
       </div>
 
-      <button type="submit">Enviar Respostas</button>
+      <button type="submit">Enviar</button>
     </form>
-  </main>
+  </div>
 
   <script>
-    document.getElementById('form').addEventListener('submit', function(e) {
-      if (!confirm('Tem certeza que deseja enviar o formulário?')) {
-        e.preventDefault();
+    const perguntas = {
+      universitaria: [
+        "Você ingressou na universidade por meio de cotas?",
+        "Já sofreu racismo dentro da universidade?",
+        "Sente-se representada pelas professoras e professores?",
+        "A universidade oferece apoio psicológico?",
+        "Participa de algum coletivo negro?",
+        "A instituição incentiva debates sobre questões raciais?",
+        "Você trabalha enquanto estuda?",
+        "Sente dificuldade de acesso a materiais de estudo?",
+        "Acredita que o diploma te dará melhores oportunidades?",
+        "Já pensou em desistir da universidade?"
+      ],
+      medio_publica: [
+        "Você sente que sua escola tem estrutura adequada?",
+        "Já presenciou ou sofreu preconceito racial na escola?",
+        "Seus professores falam sobre questões raciais?",
+        "Sua escola oferece projetos de apoio ao estudo?",
+        "Você já participou de alguma olimpíada estudantil?",
+        "Você trabalha enquanto estuda?",
+        "Você pretende fazer faculdade?",
+        "Já pensou em abandonar os estudos?",
+        "Sente apoio da família para continuar estudando?",
+        "Participa de algum projeto extracurricular?"
+      ],
+      medio_privada: [
+        "Você sente diferença entre colegas por classe social?",
+        "Já sofreu preconceito racial na escola?",
+        "Existe diversidade entre os professores?",
+        "Você trabalha enquanto estuda?",
+        "Sua escola aborda temas de diversidade?",
+        "Participa de atividades extracurriculares?",
+        "Você pretende estudar fora do país?",
+        "Sente-se representada nas aulas?",
+        "Sua escola oferece bolsas para alunos negros?",
+        "Já pensou em mudar de escola por questões raciais?"
+      ],
+      trabalhadora: [
+        "Você trabalha atualmente?",
+        "Seu trabalho interfere nos estudos?",
+        "Você sente apoio da escola ou faculdade para continuar estudando e trabalhando?",
+        "Você já pensou em abandonar os estudos por causa do trabalho?",
+        "Que tipo de ajuda mais te incentivaria a continuar estudando?",
+        "Como é sua rotina entre trabalho, estudos e vida pessoal?",
+        "Você sente que o ambiente escolar/universitário entende suas dificuldades?",
+        "Você já sofreu discriminação no trabalho ou na escola por ser mulher negra?",
+        "Você conhece outras mulheres negras que também trabalham e estudam?",
+        "Você acredita que seus estudos vão te ajudar a conquistar melhores oportunidades no trabalho?"
+      ]
+    };
+
+    const tipoSelect = document.getElementById('tipo');
+    const perguntasContainer = document.getElementById('perguntas-container');
+
+    tipoSelect.addEventListener('change', () => {
+      perguntasContainer.innerHTML = '';
+      const tipo = tipoSelect.value;
+      if (perguntas[tipo]) {
+        perguntas[tipo].forEach((pergunta, i) => {
+          const label = document.createElement('label');
+          label.textContent = `${i + 1}. ${pergunta}`;
+          label.style.marginTop = '15px';
+          const textarea = document.createElement('textarea');
+          textarea.name = `resposta_${i + 1}`;
+          textarea.rows = 2;
+          perguntasContainer.appendChild(label);
+          perguntasContainer.appendChild(textarea);
+        });
       }
+    });
+
+    document.getElementById('formulario').addEventListener('submit', e => {
+      if (!document.getElementById('aceito').checked) {
+        e.preventDefault();
+        alert('Você precisa aceitar os termos do TCLE para enviar o formulário.');
+        return;
+      }
+
+      e.preventDefault();
+
+      const formData = new FormData(e.target);
+      const data = {};
+      for (const [key, value] of formData.entries()) {
+        data[key] = value.trim();
+      }
+
+      fetch('http://localhost:3000/enviar', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      })
+      .then(res => res.json())
+      .then(response => {
+        alert('Formulário enviado com sucesso!');
+        e.target.reset();
+        perguntasContainer.innerHTML = '';
+      })
+      .catch(error => {
+        alert('Erro ao enviar. Tente novamente.');
+        console.error(error);
+      });
     });
   </script>
 </body>
