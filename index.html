@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Pesquisa Mulheres Negras - Formulário</title>
+<style>
+  body {
+    background: #121212;
+    color: #d0c9ff;
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  h1, h2 {
+    color: #9b59b6;
+  }
+  label {
+    display: block;
+    margin-top: 15px;
+  }
+  input[type=text], input[type=email], select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+  }
+  .termo-label {
+    margin-top: 25px;
+    display: flex;
+    align-items: center;
+    font-weight: bold;
+  }
+  input[type=checkbox] {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    cursor: pointer;
+  }
+  button {
+    margin-top: 30px;
+    padding: 15px 25px;
+    font-size: 18px;
+    background: #9b59b6;
+    border: none;
+    border-radius: 12px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  button:disabled {
+    background: #555;
+    cursor: not-allowed;
+  }
+  button:hover:not(:disabled) {
+    background: #7e3fa5;
+  }
+  .container {
+    max-width: 600px;
+    margin: auto;
+  }
+  small {
+    color: #aaa;
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>TERMO DE CONSENTIMENTO LIVRE E ESCLARECIDO (TCLE) - ONLINE</h1>
+  <h2>Entre a Escola e a Margem: Mulheres Negras no Brasil e o Acesso Negado ao Futuro</h2>
+  <p><strong>Pesquisadora Responsável:</strong> Mirella Santos Souza<br />
+  <strong>Instituição:</strong> EEEM Dr° José Cursino de Azevedo</p>
+
+  <p>Você está sendo convidada a participar desta pesquisa que tem como objetivo conhecer melhor as experiências de <strong>meninas e mulheres negras</strong> em relação à escola, universidade e mercado de trabalho. Suas respostas são muito importantes para refletirmos e contribuirmos com a luta por mais igualdade e oportunidades.</p>
+
+  <p><strong>Sua participação é voluntária e sigilosa.</strong> Você pode parar de responder a qualquer momento. Nenhuma informação pessoal será divulgada. Os resultados serão usados exclusivamente para fins acadêmicos e científicos.</p>
+
+  <p><strong>Não há riscos ou custos envolvidos.</strong> O maior benefício é contribuir para a construção de políticas públicas mais justas e ajudar a dar visibilidade às experiências das mulheres negras.</p>
+
+  <p>Caso tenha dúvidas, entre em contato:<br />
+  <strong>E-mail:</strong> mirellasantossouza2712@gmail.com<br />
+  <strong>WhatsApp:</strong> (94)99243-1290</p>
+
+  <hr />
+
+  <form id="formPesquisa">
+
+    <label>Nome completo: <input type="text" id="nome" required /></label>
+
+    <label>E-mail (opcional): <input type="email" id="email" /></label>
+
+    <h2>Questionário Objetivo 3 – Para Universitárias Negras</h2>
+
+    <label>1. Você ingressou na universidade por meio de ações afirmativas (cotas, Prouni ou similares)?</label>
+    <select id="q1" required>
+      <option value="">Selecione</option>
+      <option value="Sim">Sim</option>
+      <option value="Não">Não</option>
+      <option value="Prefiro não responder">Prefiro não responder</option>
+    </select>
+
+    <label>2. Você já pensou em desistir do curso por dificuldades financeiras ou emocionais?</label>
+    <select id="q2" required>
+      <option value="">Selecione</option>
+      <option value="Sim, muitas vezes">Sim, muitas vezes</option>
+      <option value="Sim, algumas vezes">Sim, algumas vezes</option>
+      <option value="Não">Não</option>
+      <option value="Prefiro não responder">Prefiro não responder</option>
+    </select>
+
+    <label>3. Você sente que o ambiente universitário é acolhedor para mulheres negras?</label>
+    <select id="q3" required>
+      <option value="">Selecione</option>
+      <option value="Sim, bastante">Sim, bastante</option>
+      <option value="Um pouco">Um pouco</option>
+      <option value="Não muito">Não muito</option>
+      <option value="Não é acolhedor">Não é acolhedor</option>
+    </select>
+
+    <label>4. Você já sofreu racismo ou machismo dentro da universidade?</label>
+    <select id="q4" required>
+      <option value="">Selecione</option>
+      <option value="Sim, frequentemente">Sim, frequentemente</option>
+      <option value="Sim, algumas vezes">Sim, algumas vezes</option>
+      <option value="Não">Não</option>
+      <option value="Prefiro não responder">Prefiro não responder</option>
+    </select>
+
+    <label>5. Qual foi ou é o maior obstáculo para você na universidade?</label>
+    <select id="q5" required>
+      <option value="">Selecione</option>
+      <option value="Falta de apoio financeiro">Falta de apoio financeiro</option>
+      <option value="Falta de apoio psicológico">Falta de apoio psicológico</option>
+      <option value="Racismo ou discriminação">Racismo ou discriminação</option>
+      <option value="Falta de identificação com o ambiente universitário">Falta de identificação com o ambiente universitário</option>
+      <option value="Outros">Outros</option>
+    </select>
+
+    <label>6. Você conhece ou participa de algum grupo ou coletivo negro dentro da universidade?</label>
+    <select id="q6" required>
+      <option value="">Selecione</option>
+      <option value="Sim, participo ativamente">Sim, participo ativamente</option>
+      <option value="Conheço, mas não participo">Conheço, mas não participo</option>
+      <option value="Não conheço">Não conheço</option>
+    </select>
+
+    <label>7. Como você avalia a presença de professoras e gestores/as negros/as na universidade?</label>
+    <select id="q7" required>
+      <option value="">Selecione</option>
+      <option value="É boa, vejo representatividade">É boa, vejo representatividade</option>
+      <option value="É baixa, faltam pessoas negras em cargos importantes">É baixa, faltam pessoas negras em cargos importantes</option>
+      <option value="Não sei dizer">Não sei dizer</option>
+    </select>
+
+    <label>8. A universidade oferece políticas de permanência para mulheres negras (bolsas, auxílios, programas específicos)?</label>
+    <select id="q8" required>
+      <option value="">Selecione</option>
+      <option value="Sim, e eu uso">Sim, e eu uso</option>
+      <option value="Sim, mas não utilizo">Sim, mas não utilizo</option>
+      <option value="Não oferece">Não oferece</option>
+      <option value="Não sei">Não sei</option>
+    </select>
+
+    <label>9. Você acredita que a sua formação vai te ajudar a quebrar barreiras no mercado de trabalho?</label>
+    <select id="q9" required>
+      <option value="">Selecione</option>
+      <option value="Sim, com certeza">Sim, com certeza</option>
+      <option value="Talvez">Talvez</option>
+      <option value="Não acredito muito nisso">Não acredito muito nisso</option>
+      <option value="Não sei">Não sei</option>
+    </select>
+
+    <label>10. Você gostaria de ver mais políticas específicas para mulheres negras na universidade?</label>
+    <select id="q10" required>
+      <option value="">Selecione</option>
+      <option value="Sim">Sim</option>
+      <option value="Não">Não</option>
+      <option value="Talvez">Talvez</option>
+    </select>
+
+    <label class="termo-label">
+      <input type="checkbox" id="termo" required />
+      Declaro que li e entendi as informações acima e autorizo, de forma livre e consciente, minha participação nesta pesquisa.
+    </label>
+
+    <button type="submit" id="btnEnviar" disabled>Enviar</button>
+
+  </form>
+
+  <p style="margin-top: 40px; font-size: 14px;">
+    Além do questionário, também estamos realizando entrevistas individuais para escutar com mais profundidade as histórias, experiências e opiniões de meninas e mulheres negras sobre educação, trabalho e os desafios do dia a dia.<br><br>
+    Se você tiver interesse em participar de uma entrevista — que será feita de forma respeitosa, segura e sigilosa — entre em contato com a pesquisadora pelo e-mail ou WhatsApp indicados abaixo. Sua voz é muito importante para fortalecer essa pesquisa e contribuir para mudanças reais.<br><br>
+    📧 E-mail para contato: mirellasantossouza2712@gmail.com<br>
+    📱 WhatsApp: (94)99243-1290<br><br>
+    Fique à vontade para enviar uma mensagem, tirar dúvidas ou agendar um horário para a conversa.<br><br>
+    Conto com você!
+  </p>
+</div>
+
+<script>
+  const termoCheckbox = document.getElementById('termo');
+  const btnEnviar = document.getElementById('btnEnviar');
+
+  termoCheckbox.addEventListener('change', () => {
+    btnEnviar.disabled = !termoCheckbox.checked;
+  });
+
+  document.getElementById('formPesquisa').addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const resposta = {
+      nome: document.getElementById('nome').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      q1: document.getElementById('q1').value,
+      q2: document.getElementById('q2').value,
+      q3: document.getElementById('q3').value,
+      q4: document.getElementById('q4').value,
+      q5: document.getElementById('q5').value,
+      q6: document.getElementById('q6').value,
+      q7: document.getElementById('q7').value,
+      q8: document.getElementById('q8').value,
+      q9: document.getElementById('q9').value,
+      q10: document.getElementById('q10').value,
+      data: new Date().toLocaleString(),
+    };
+
+    let respostas = JSON.parse(localStorage.getItem('respostas')) || [];
+    respostas.push(resposta);
+    localStorage.setItem('respostas', JSON.stringify(respostas));
+
+    alert('Obrigado por responder!');
+
+    e.target.reset();
+    btnEnviar.disabled = true;
+  });
+</script>
+
+</body>
+</html>
