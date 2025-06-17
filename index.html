@@ -5,8 +5,89 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Formulário Pesquisa Mulheres Trabalhadoras</title>
   <style>
-    /* Seu CSS aqui (igual ao que você enviou) */
-    /* ... mantenha seu CSS do formulário ... */
+    body {
+      background-color: #121212;
+      color: #d0c9ff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 700px;
+      margin: 30px auto;
+      padding: 20px;
+      background: #1a1a2e;
+      border-radius: 8px;
+    }
+    h2 {
+      color: #9b59b6;
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input[type="text"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 8px;
+      border-radius: 6px;
+      border: none;
+      margin-top: 5px;
+      background-color: #23234d;
+      color: #d0c9ff;
+      font-size: 14px;
+      resize: vertical;
+    }
+    textarea {
+      min-height: 80px;
+    }
+    button {
+      margin-top: 25px;
+      width: 100%;
+      background-color: #9b59b6;
+      border: none;
+      color: white;
+      padding: 12px;
+      font-size: 18px;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #7e3fa5;
+    }
+    .tcle-box {
+      margin-top: 20px;
+      font-size: 13px;
+      color: #c8a9ff;
+      background: #29195a;
+      padding: 8px 12px;
+      border-radius: 6px;
+    }
+    .consentimento {
+      margin-top: 12px;
+      font-weight: normal;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .info-entrevista {
+      margin-top: 20px;
+      font-size: 13px;
+      color: #cc66ff;
+      text-align: center;
+    }
+    a {
+      color: #cc66ff;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body>
@@ -102,7 +183,7 @@
       <div class="info-entrevista">
         Pode haver uma entrevista individual para aprofundar a pesquisa.<br />
         Contato: <strong>94 99243-1290</strong><br />
-        Email: <a href="mailto:mirellasantossouza2712@gmail.com" style="color:#cc66ff; text-decoration:none;">mirellasantossouza2712@gmail.com</a>
+        Email: <a href="mailto:mirellasantossouza2712@gmail.com">mirellasantossouza2712@gmail.com</a>
       </div>
 
       <button type="submit">Enviar Respostas</button>
@@ -111,8 +192,7 @@
 
   <script>
     document.getElementById('form').addEventListener('submit', function(e) {
-      // Apenas alertar confirmação
-      if(!confirm('Tem certeza que deseja enviar o formulário?')) {
+      if (!confirm('Tem certeza que deseja enviar o formulário?')) {
         e.preventDefault();
       }
     });
