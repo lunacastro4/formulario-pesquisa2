@@ -1,10 +1,11 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Pesquisa - Mulheres Negras e Educação</title>
 <style>
+  /* Seu CSS igual */
   body {
     margin: 0; padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -276,12 +277,15 @@
         data[key] = value.trim();
       }
 
-      fetch('https://formulario-pesquisa2.onrender.com', {
+      fetch('https://formulario-pesquisa2.onrender.com/enviar', { // <-- AQUI TEM QUE TER /enviar
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
       })
-      .then(res => res.json())
+      .then(res => {
+        if (!res.ok) throw new Error('Erro no servidor');
+        return res.json();
+      })
       .then(response => {
         alert('Formulário enviado com sucesso!');
         e.target.reset();
