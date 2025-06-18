@@ -262,13 +262,13 @@
     });
 
     document.getElementById('formulario').addEventListener('submit', e => {
-      if (!document.getElementById('aceito').checked) {
-        e.preventDefault();
-        alert('Você precisa aceitar os termos do TCLE para enviar o formulário.');
-        return;
-      }
-
       e.preventDefault();
+
+      // Se quiser manter o aceite dos termos, descomente abaixo:
+      // if (!document.getElementById('aceito').checked) {
+      //   alert('Você precisa aceitar os termos do TCLE para enviar o formulário.');
+      //   return;
+      // }
 
       const formData = new FormData(e.target);
       const data = {};
