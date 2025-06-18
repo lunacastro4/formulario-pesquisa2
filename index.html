@@ -277,7 +277,8 @@
         data[key] = value.trim();
       }
 
-      fetch('https://formulario-pesquisa2.onrender.com/enviar', { // <-- AQUI TEM QUE TER /enviar
+      fetch('https://script.google.com/macros/s/AKfycbzhberA6WPwG5-ndUyruTVW70Tg3ajroHovpZQzq5jkHkgmDDmMNVRqqT9PZPZdDaln/exec
+', { // <-- AQUI TEM QUE TER /enviar
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
