@@ -5,7 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Pesquisa - Mulheres Negras e Educação</title>
 <style>
-  /* Seu CSS igual */
   body {
     margin: 0; padding: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -251,10 +250,10 @@
       if (perguntas[tipo]) {
         perguntas[tipo].forEach((pergunta, i) => {
           const label = document.createElement('label');
-          label.textContent = ${i + 1}. ${pergunta};
+          label.textContent = `${i + 1}. ${pergunta}`;
           label.style.marginTop = '15px';
           const textarea = document.createElement('textarea');
-          textarea.name = resposta_${i + 1};
+          textarea.name = `resposta_${i + 1}`;
           textarea.rows = 2;
           perguntasContainer.appendChild(label);
           perguntasContainer.appendChild(textarea);
@@ -277,7 +276,7 @@
         data[key] = value.trim();
       }
 
-      fetch('https://formulario-pesquisa2.onrender.com/enviar', { // <-- AQUI TEM QUE TER /enviar
+      fetch('https://formulario-pesquisa2.onrender.com/enviar', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
