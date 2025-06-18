@@ -162,7 +162,7 @@
         <option value="universitaria">Universitária</option>
         <option value="medio_publica">Ensino Médio - Pública</option>
         <option value="medio_privada">Ensino Médio - Privada</option>
-        <option value="trabalhadora">Trabalhadora Estudante</option>
+        <option value="trabalhadora">Trabalhadora que estuda</option>
       </select>
 
       <label for="instituicao">Instituição (nome da escola/faculdade):</label>
@@ -251,10 +251,10 @@
       if (perguntas[tipo]) {
         perguntas[tipo].forEach((pergunta, i) => {
           const label = document.createElement('label');
-          label.textContent = `${i + 1}. ${pergunta}`;
+          label.textContent = ${i + 1}. ${pergunta};
           label.style.marginTop = '15px';
           const textarea = document.createElement('textarea');
-          textarea.name = `resposta_${i + 1}`;
+          textarea.name = resposta_${i + 1};
           textarea.rows = 2;
           perguntasContainer.appendChild(label);
           perguntasContainer.appendChild(textarea);
@@ -277,8 +277,7 @@
         data[key] = value.trim();
       }
 
-      fetch('https://script.google.com/macros/s/AKfycbzhberA6WPwG5-ndUyruTVW70Tg3ajroHovpZQzq5jkHkgmDDmMNVRqqT9PZPZdDaln/exec
-', { // <-- AQUI TEM QUE TER /enviar
+      fetch('https://formulario-pesquisa2.onrender.com/enviar', { // <-- AQUI TEM QUE TER /enviar
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
