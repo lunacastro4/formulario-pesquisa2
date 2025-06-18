@@ -35,8 +35,11 @@
     }
 
     function carregarRespostas() {
-      fetch('https://formulario-pesquisa2.onrender.com')
-        .then(res => res.json())
+      fetch('https://formulario-pesquisa2.onrender.com/respostas') // URL para pegar as respostas
+        .then(res => {
+          if (!res.ok) throw new Error('Erro ao buscar respostas');
+          return res.json();
+        })
         .then(data => {
           const div = document.getElementById('respostas');
           div.style.display = 'block';
