@@ -35,7 +35,8 @@
     }
 
     function carregarRespostas() {
-      fetch('https://formulario-pesquisa2.onrender.com/respostas') // URL para pegar as respostas
+      fetch('https://script.google.com/macros/s/AKfycbzhberA6WPwG5-ndUyruTVW70Tg3ajroHovpZQzq5jkHkgmDDmMNVRqqT9PZPZdDaln/exec
+') // URL para pegar as respostas
         .then(res => {
           if (!res.ok) throw new Error('Erro ao buscar respostas');
           return res.json();
