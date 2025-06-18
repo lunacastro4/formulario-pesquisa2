@@ -35,7 +35,7 @@
     }
 
     function carregarRespostas() {
-      fetch('http://localhost:3000/respostas')
+      fetch('https://formulario-pesquisa2.onrender.com')
         .then(res => res.json())
         .then(data => {
           const div = document.getElementById('respostas');
