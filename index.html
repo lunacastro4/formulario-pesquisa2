@@ -276,7 +276,7 @@
         data[key] = value.trim();
       }
 
-      fetch('http://localhost:3000/enviar', {
+      fetch('https://formulario-pesquisa2.onrender.com', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
