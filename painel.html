@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
@@ -43,16 +43,19 @@
         .then(data => {
           const div = document.getElementById('respostas');
           div.style.display = 'block';
+
           if (!data.length) {
             div.innerHTML = '<p>Nenhuma resposta recebida ainda.</p>';
             return;
           }
+
           let html = '<table><thead><tr>';
           // Mostrar cabeçalho com as chaves do primeiro objeto
           Object.keys(data[0]).forEach(chave => {
-            html += <th>${chave}</th>;
+            html += `<th>${chave}</th>`;
           });
           html += '</tr></thead><tbody>';
+
           // Mostrar cada resposta em uma linha
           data.forEach(resp => {
             html += '<tr>';
@@ -64,10 +67,11 @@
                 .replace(/>/g, "&gt;")
                 .replace(/"/g, "&quot;")
                 .replace(/'/g, "&#39;");
-              html += <td>${safeVal}</td>;
+              html += `<td>${safeVal}</td>`;
             });
             html += '</tr>';
           });
+
           html += '</tbody></table>';
           div.innerHTML = html;
         })
@@ -79,3 +83,4 @@
   </script>
 </body>
 </html>
+
